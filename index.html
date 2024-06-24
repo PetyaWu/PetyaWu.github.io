@@ -139,7 +139,7 @@
     <section id="cart-section" class="main-content" style="display: none;">
         <h2>Cart</h2>
         <div id="cart"></div>
-        <div id="cart-total"></div>
+        <div id="cart-total">Total: CHF 0.00</div>
         <h3>Choose a Payment Method</h3>
         <div id="payment-methods">
             <label>
@@ -196,6 +196,32 @@
                     itemName.textContent = item.name + " x" + item.quantity;
                     itemName.classList.add("cart-item-name");
 
+                    var itemQuantity = document.createElement("div");
+                    itemQuantity.classList.add("cart-item-quantity");
+
+                    var decreaseBtn = document.createElement("button");
+                    decreaseBtn.textContent = "-";
+                    decreaseBtn.addEventListener("click", function() {
+                        if (item.quantity > 1) {
+                            item.quantity--;
+                            updateCartDisplay();
+                        }
+                    });
+
+                    var quantityDisplay = document.createElement("span");
+                    quantityDisplay.textContent = "x" + item.quantity;
+            
+                    var increaseBtn = document.createElement("button");
+                    increaseBtn.textContent = "+";
+                    increaseBtn.addEventListener("click", function() {
+                        item.quantity++;
+                        updateCartDisplay();
+                    });
+            
+                    itemQuantity.appendChild(decreaseBtn);
+                    itemQuantity.appendChild(quantityDisplay);
+                    itemQuantity.appendChild(increaseBtn);
+
                     var itemPrice = document.createElement("span");
                     var totalPrice = (item.price * item.quantity).toFixed(2).replace(/\.00$/, "");
                     itemPrice.textContent = " - CHF " + totalPrice;
@@ -205,6 +231,7 @@
     
                     cartItem.appendChild(img);
                     cartItem.appendChild(itemName);
+                    cartItem.appendChild(itemQuantity);
                     cartItem.appendChild(itemPrice);
     
                     cart.appendChild(cartItem);
