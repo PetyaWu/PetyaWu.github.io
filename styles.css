@@ -20,7 +20,7 @@ header h1 {
 
 main#home-section {
     height: 100vh;
-    background-image: url('home_background.jpg'); /* Путь к вашей фотографии */
+    background-image: url('images/home_background.jpg'); /* Путь к вашей фотографии */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
