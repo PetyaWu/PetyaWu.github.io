@@ -29,70 +29,85 @@
 
     <section id="catalog-section" class="main-content" style="display: none;">
         <section class="product-list">
-            <div class="product">
+            <div class="product" data-price="155">
                 <img src="images/sneaker1.jpg" alt="Sneaker 1">
                 <h3>Nike Air Force 1 '07</h3>
                 <p>Classic style and unmatched comfort. The Nike Air Force 1 '07 offers excellent cushioning and a stylish look. This model is a perfect addition to any wardrobe.</p>
                 <p class="price">CHF 155</p>
-                <button>Add to Cart</button>
+                <button data-id="sneaker1">Add to Cart</button>
+                <button class="review-btn">Add Review</button>
             </div>
         
-            <div class="product">
+            <div class="product" data-price="350">
                 <img src="images/sneaker2.jpg" alt="Sneaker 2">
                 <h3>Nike Phantom Luna 2 Elite SE</h3>
                 <p>Designed for maximum performance. The Nike Phantom Luna 2 Elite SE provides superior ball control and stability. Ideal for professionals and active game enthusiasts.</p>
                 <p class="price">CHF 350</p>
-                <button>Add to Cart</button>
+                <button data-id="sneaker2">Add to Cart</button>
+                <button class="review-btn">Add Review</button>
             </div>
                
-            <div class="product">
+            <div class="product" data-price="200">
                 <img src="images/sneaker3.jpg" alt="Sneaker 3">
                 <h3>Nike Air Max Plus III</h3>
                 <p>Modern design and innovative technology. The Nike Air Max Plus III offers superior cushioning and support. Perfect for everyday use and workouts.</p>
                 <p class="price">CHF 200</p>
-                <button>Add to Cart</button>
+                <button data-id="sneaker3">Add to Cart</button>
+                <button class="review-btn">Add Review</button>
             </div>
         
-            <div class="product">
+            <div class="product" data-price="125">
                 <img src="images/sneaker4.jpg" alt="Sneaker 4">
                 <h3>Nike Air Force 1</h3>
                 <p>Iconic design and reliable construction. The Nike Air Force 1 offers classic style and comfort. These sneakers are suitable for any occasion, from casual walks to sports activities.</p>
                 <p class="price">CHF 125</p>
-                <button>Add to Cart</button>
+                <button data-id="sneaker4">Add to Cart</button>
+                <button class="review-btn">Add Review</button>
             </div>
         
-            <div class="product">
+            <div class="product" data-price="190">
                 <img src="images/sneaker5.jpg" alt="Sneaker 5">
                 <h3>Nike Air Max Plus</h3>
                 <p>Innovative design and exceptional comfort. The Nike Air Max Plus offers maximum cushioning and a stylish look. Ideal for those who value comfort and style.</p>
                 <p class="price">CHF 190</p>
-                <button>Add to Cart</button>
+                <button data-id="sneaker5">Add to Cart</button>
+                <button class="review-btn">Add Review</button>
             </div>
         
-            <div class="product">
+            <div class="product" data-price="145">
                 <img src="images/sneaker6.jpg" alt="Sneaker 6">
                 <h3>Nike Air Force 1 GS</h3>
                 <p>Specially designed for young athletes. The Nike Air Force 1 GS offers the same style and comfort as adult models. Perfect for school activities and active recreation.</p>
                 <p class="price">CHF 145</p>
-                <button>Add to Cart</button>
+                <button data-id="sneaker6">Add to Cart</button>
+                <button class="review-btn">Add Review</button>
             </div>
                
-            <div class="product">
+            <div class="product" data-price="175">
                 <img src="images/sneaker7.jpg" alt="Sneaker 7">
                 <h3>Nike Air Force 1</h3>
                 <p>A classic choice for all ages. The Nike Air Force 1 offers durability and style. These sneakers will be a great addition to any wardrobe.</p>
                 <p class="price">CHF 175</p>
-                <button>Add to Cart</button>
+                <button data-id="sneaker7">Add to Cart</button>
+                <button class="review-btn">Add Review</button>
             </div>
         
-            <div class="product">
+            <div class="product" data-price="155">
                 <img src="images/sneaker8.jpg" alt="Sneaker 8">
                 <h3>Nike Air Force 1 '07</h3>
                 <p>The return of a legend. The Nike Air Force 1 '07 offers an updated design and unmatched comfort. These sneakers combine classic and modern technology.</p>
                 <p class="price">CHF 155</p>
-                <button>Add to Cart</button>
+                <button data-id="sneaker8">Add to Cart</button>
+                <button class="review-btn">Add Review</button>
             </div>    
         </section>
+        <div id="price-filter">
+            <label for="min-price">Min Price:</label>
+            <input type="number" id="min-price" min="0" value="0">
+            <label for="max-price">Max Price:</label>
+            <input type="number" id="max-price" min="0" value="500">
+            <button id="filter-btn">Apply Filter</button>
+        </div>
     </section>
 
     <section id="about-section" class="main-content" style="display: none;">
@@ -143,20 +158,6 @@
         <button id="checkout-button">Checkout</button>
     </section>
 
-    <section id="reviews-section" class="main-content" style="display: none;">
-        <h2>Customer Reviews</h2>
-        <div class="review-list" id="review-list"></div>
-        <form class="review-form" id="review-form">
-            <label for="reviewer-name">Name:</label>
-            <input type="text" id="reviewer-name" name="reviewer-name" required>
-
-            <label for="review-message">Review:</label>
-            <textarea id="review-message" name="review-message" rows="4" required></textarea>
-
-            <button type="submit">Submit Review</button>
-        </form>
-    </section>
-
     <footer id="footer">
         <p>&copy; 2024 White Walkers. All rights reserved.</p>
     </footer>
@@ -176,8 +177,7 @@
             }
 
             function updateCartDisplay() {
-                var cart = document.getElementBy
-                            var("cart");
+                var cart = document.getElementById("cart");
                 var cartTotal = document.getElementById("cart-total");
                 cart.innerHTML = "";
                 var total = 0;
@@ -218,7 +218,7 @@
             addToCartButtons.forEach(function(button, index) {
                 button.addEventListener("click", function() {
                     var product = button.parentElement;
-                    var id = index;
+                    var id = product.getAttribute("data-id");
                     var name = product.querySelector("h3").textContent;
                     var price = product.querySelector(".price").textContent.replace("CHF ", "");
                     var image = product.querySelector("img").src;
@@ -231,44 +231,56 @@
             var aboutLink = document.getElementById("about-link");
             var contactLink = document.getElementById("contact-link");
             var cartLink = document.getElementById("cart-link");
-            var reviewsLink = document.getElementById("reviews-link");
-
             var homeSection = document.getElementById("home-section");
             var catalogSection = document.getElementById("catalog-section");
             var aboutSection = document.getElementById("about-section");
             var contactSection = document.getElementById("contact-section");
             var cartSection = document.getElementById("cart-section");
-            var reviewsSection = document.getElementById("reviews-section");
 
             homeLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                showSection(homeSection);
+                homeSection.style.display = "block";
+                catalogSection.style.display = "none";
+                aboutSection.style.display = "none";
+                contactSection.style.display = "none";
+                cartSection.style.display = "none";
             });
 
             catalogLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                showSection(catalogSection);
+                catalogSection.style.display = "block";
+                homeSection.style.display = "none";
+                aboutSection.style.display = "none";
+                contactSection.style.display = "none";
+                cartSection.style.display = "none";
             });
 
             aboutLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                showSection(aboutSection);
+                aboutSection.style.display = "block";
+                homeSection.style.display = "none";
+                catalogSection.style.display = "none";
+                contactSection.style.display = "none";
+                cartSection.style.display = "none";
             });
 
             contactLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                showSection(contactSection);
+                contactSection.style.display = "block";
+                homeSection.style.display = "none";
+                catalogSection.style.display = "none";
+                aboutSection.style.display = "none";
+                cartSection.style.display = "none";
             });
 
             cartLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                showSection(cartSection);
-            });
-
-            reviewsLink.addEventListener("click", function(event) {
-                event.preventDefault();
-                showSection(reviewsSection);
-                loadReviews();
+                cartSection.style.display = "block";
+                homeSection.style.display = "none";
+                catalogSection.style.display = "none";
+                aboutSection.style.display = "none";
+                contactSection.style.display = "none";
+                updateCartDisplay(); // Update cart display when navigating to cart
             });
 
             var contactForm = document.getElementById("contact-form");
@@ -284,57 +296,42 @@
                 contactForm.reset();
             });
 
-            var reviewForm = document.getElementById("review-form");
-            reviewForm.addEventListener("submit", function(event) {
-                event.preventDefault();
-                var reviewerName = document.getElementById("reviewer-name").value;
-                var reviewMessage = document.getElementById("review-message").value;
-                saveReview(reviewerName, reviewMessage);
-                reviewForm.reset();
+            var reviewButtons = document.querySelectorAll(".review-btn");
+            reviewButtons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    var product = button.parentElement;
+                    var productName = product.querySelector("h3").textContent;
+                    var review = prompt("Write your review for " + productName + ":");
+                    if (review) {
+                        alert("Thank you for your review!");
+                        // Here you could send the review data to a backend or simply display it somewhere
+                    }
+                });
             });
 
-            function showSection(section) {
-                var sections = document.querySelectorAll(".main-content");
-                sections.forEach(function(sec) {
-                    sec.style.display = "none";
+            var filterButton = document.getElementById("filter-btn");
+            filterButton.addEventListener("click", function() {
+                var minPrice = parseFloat(document.getElementById("min-price").value);
+                var maxPrice = parseFloat(document.getElementById("max-price").value);
+
+                var products = document.querySelectorAll(".product");
+                products.forEach(function(product) {
+                    var price = parseFloat(product.getAttribute("data-price"));
+                    if (price >= minPrice && price <= maxPrice) {
+                        product.style.display = "block";
+                    } else {
+                        product.style.display = "none";
+                    }
                 });
-                section.style.display = "block";
-            }
-
-            function saveReview(name, message) {
-                // Simulating saving review to database or storage
-                var reviewList = document.getElementById("review-list");
-                var reviewItem = document.createElement("div");
-                reviewItem.classList.add("review-item");
-                var reviewContent = document.createElement("p");
-                reviewContent.innerHTML = "<strong>" + name + "</strong>: " + message;
-                reviewItem.appendChild(reviewContent);
-                reviewList.appendChild(reviewItem);
-            }
-
-            function loadReviews() {
-                // Simulating loading reviews from database or storage
-                var reviewList = document.getElementById("review-list");
-                reviewList.innerHTML = ""; // Clear existing reviews
-                var reviews = [
-                    { name: "John Doe", message: "Great sneakers! Love the design and comfort." },
-                    { name: "Jane Smith", message: "Excellent customer service. Fast shipping too!" },
-                    { name: "David Brown", message: "Highly recommend! Will buy again." }
-                ];
-
-                reviews.forEach(function(review) {
-                    var reviewItem = document.createElement("div");
-                    reviewItem.classList.add("review-item");
-                    var reviewContent = document.createElement("p");
-                    reviewContent.innerHTML = "<strong>" + review.name + "</strong>: " + review.message;
-                    reviewItem.appendChild(reviewContent);
-                    reviewList.appendChild(reviewItem);
-                });
-            }
+            });
         });
     </script>
 </body>
 </html>
+
+
+           
+
 
 
 
