@@ -32,10 +32,14 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    padding: 5px 10px; /* Улучшение стиля навигационных ссылок */
+    transition: background-color 0.3s ease; /* Анимация при наведении */
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    background-color: #555;
+    border-radius: 5px;
 }
 
 .main-content {
@@ -92,55 +96,13 @@ footer {
     background-color: #333;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 15px; /* Уменьшение размера кнопок */
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Добавлена анимация кнопок */
+    transition: background-color 0.3s ease; /* Анимация кнопок */
+    border-radius: 3px;
 }
 
 .product button:hover {
-    background-color: #e91e63;
-}
-
-/* Стили для корзины */
-#cart {
-    border-top: 1px solid #ddd;
-    margin-top: 20px;
-    padding-top: 20px;
-}
-
-#cart div {
-    margin-bottom: 10px;
-}
-
-/* Стили для формы контактов */
-#contact-form {
-    display: flex;
-    flex-direction: column;
-}
-
-#contact-form label {
-    margin-top: 10px;
-}
-
-#contact-form input, 
-#contact-form textarea {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#contact-form button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease; /* Добавлена анимация кнопок */
-}
-
-#contact-form button:hover {
     background-color: #e91e63;
 }
 
@@ -174,13 +136,13 @@ footer {
 
 .cart-item-quantity button {
     margin: 0 5px;
-    padding: 5px 10px;
+    padding: 5px 8px; /* Уменьшение размера кнопок управления количеством */
     font-size: 14px;
     cursor: pointer;
     border: none;
     background-color: #007bff;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 3px;
     transition: background-color 0.3s;
 }
 
@@ -228,23 +190,6 @@ footer {
     background-color: #d81b60;
 }
 
-/* Дополнительные улучшения */
-
-/* Улучшение навигационной панели */
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease; /* Добавлена анимация */
-}
-
-nav ul li a:hover {
-    text-decoration: none;
-    background-color: #555;
-    border-radius: 5px;
-}
-
 /* Стили для отзывов */
 .reviews {
     margin-top: 10px;
@@ -271,10 +216,9 @@ nav ul li a:hover {
     color: white;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Добавлена анимация кнопок */
+    transition: background-color 0.3s ease; /* Анимация кнопок */
 }
 
 .review-form button:hover {
     background-color: #4cae4c;
 }
-
