@@ -23,16 +23,31 @@ main#home-section {
     background-image: url('home_background.jpg'); /* Путь к вашей фотографии */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .home-content {
-    background-color: rgba(255, 255, 255, 0.8); /* Прозрачный белый фон для текста */
+    background-color: rgba(0, 0, 0, 0.5); /* Прозрачный белый фон для текста */
     padding: 20px;
     border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
     text-align: center;
+}
+
+.home-section h2 {
+    font-size: 3em; /* Размер заголовка */
+    margin-bottom: 10px;
+
+.home-section p {
+    font-size: 1.5em; /* Размер текста */
+    line-height: 1.6; /* Межстрочный интервал */
 }
 
 .home-text {
