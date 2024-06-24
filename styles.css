@@ -80,12 +80,13 @@ footer {
 
 .main-title {
     font-size: 3em;
-    color: #fff;
+    color: #333;
 }
 
 .slogan {
     font-size: 1.5em;
-    color: #333;
+    color: #00bfff; /* Светло-голубой цвет */
+    font-weight: bold; /* Жирный шрифт */
 }
 
 /* Стили для каталога */
