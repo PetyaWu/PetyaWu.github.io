@@ -274,7 +274,7 @@ footer {
 
 /* Стили для главной секции */
 .home-section {
-    background-image: url('path/to/your/image.jpg'); /* Путь к вашему изображению */
+    background-image: url('images/home_background.jpg'); /* Путь к вашему изображению */
     background-size: cover;
     background-position: center;
     height: 100vh;
