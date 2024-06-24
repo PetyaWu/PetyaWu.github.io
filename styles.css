@@ -19,7 +19,6 @@ header h1 {
 }
 
 main#home-section {
-    height: 100vh;
     background-image: url('images/home_background.jpg'); /* Путь к вашей фотографии */
     background-size: cover;
     background-position: center;
@@ -27,18 +26,14 @@ main#home-section {
     color: #fff;
     text-align: center;
     padding: 100px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.home-content {
+.home-section .home-content {
     background-color: rgba(0, 0, 0, 0.5); /* Прозрачный белый фон для текста */
     padding: 20px;
     border-radius: 10px;
     max-width: 600px;
     margin: 0 auto;
-    text-align: center;
 }
 
 .home-section h2 {
