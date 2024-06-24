@@ -94,6 +94,7 @@ footer {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Добавлена анимация кнопок */
 }
 
 .product button:hover {
@@ -136,6 +137,7 @@ footer {
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 10px;
+    transition: background-color 0.3s ease; /* Добавлена анимация кнопок */
 }
 
 #contact-form button:hover {
@@ -199,3 +201,54 @@ footer {
 #checkout-button:hover {
     background-color: #d81b60;
 }
+
+/* Дополнительные улучшения */
+
+/* Улучшение навигационной панели */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease; /* Добавлена анимация */
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Стили для отзывов */
+.reviews {
+    margin-top: 10px;
+}
+
+.review-list {
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.review-form button {
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Добавлена анимация кнопок */
+}
+
+.review-form button:hover {
+    background-color: #4cae4c;
+}
+
