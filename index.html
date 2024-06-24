@@ -143,6 +143,20 @@
         <button id="checkout-button">Checkout</button>
     </section>
 
+    <section id="reviews-section" class="main-content" style="display: none;">
+        <h2>Customer Reviews</h2>
+        <div class="review-list" id="review-list"></div>
+        <form class="review-form" id="review-form">
+            <label for="reviewer-name">Name:</label>
+            <input type="text" id="reviewer-name" name="reviewer-name" required>
+
+            <label for="review-message">Review:</label>
+            <textarea id="review-message" name="review-message" rows="4" required></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
     <footer id="footer">
         <p>&copy; 2024 White Walkers. All rights reserved.</p>
     </footer>
@@ -162,7 +176,8 @@
             }
 
             function updateCartDisplay() {
-                var cart = document.getElementById("cart");
+                var cart = document.getElementBy
+                            var("cart");
                 var cartTotal = document.getElementById("cart-total");
                 cart.innerHTML = "";
                 var total = 0;
@@ -216,55 +231,44 @@
             var aboutLink = document.getElementById("about-link");
             var contactLink = document.getElementById("contact-link");
             var cartLink = document.getElementById("cart-link");
+            var reviewsLink = document.getElementById("reviews-link");
+
             var homeSection = document.getElementById("home-section");
             var catalogSection = document.getElementById("catalog-section");
             var aboutSection = document.getElementById("about-section");
             var contactSection = document.getElementById("contact-section");
             var cartSection = document.getElementById("cart-section");
+            var reviewsSection = document.getElementById("reviews-section");
 
             homeLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                homeSection.style.display = "block";
-                catalogSection.style.display = "none";
-                aboutSection.style.display = "none";
-                contactSection.style.display = "none";
-                cartSection.style.display = "none";
+                showSection(homeSection);
             });
 
             catalogLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                catalogSection.style.display = "block";
-                homeSection.style.display = "none";
-                aboutSection.style.display = "none";
-                contactSection.style.display = "none";
-                cartSection.style.display = "none";
+                showSection(catalogSection);
             });
 
             aboutLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                aboutSection.style.display = "block";
-                homeSection.style.display = "none";
-                catalogSection.style.display = "none";
-                contactSection.style.display = "none";
-                cartSection.style.display = "none";
+                showSection(aboutSection);
             });
 
             contactLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                contactSection.style.display = "block";
-                homeSection.style.display = "none";
-                catalogSection.style.display = "none";
-                aboutSection.style.display = "none";
-                cartSection.style.display = "none";
+                showSection(contactSection);
             });
 
             cartLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                cartSection.style.display = "block";
-                homeSection.style.display = "none";
-                catalogSection.style.display = "none";
-                aboutSection.style.display = "none";
-                contactSection.style.display = "none";
+                showSection(cartSection);
+            });
+
+            reviewsLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                showSection(reviewsSection);
+                loadReviews();
             });
 
             var contactForm = document.getElementById("contact-form");
@@ -279,10 +283,59 @@
 
                 contactForm.reset();
             });
+
+            var reviewForm = document.getElementById("review-form");
+            reviewForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                var reviewerName = document.getElementById("reviewer-name").value;
+                var reviewMessage = document.getElementById("review-message").value;
+                saveReview(reviewerName, reviewMessage);
+                reviewForm.reset();
+            });
+
+            function showSection(section) {
+                var sections = document.querySelectorAll(".main-content");
+                sections.forEach(function(sec) {
+                    sec.style.display = "none";
+                });
+                section.style.display = "block";
+            }
+
+            function saveReview(name, message) {
+                // Simulating saving review to database or storage
+                var reviewList = document.getElementById("review-list");
+                var reviewItem = document.createElement("div");
+                reviewItem.classList.add("review-item");
+                var reviewContent = document.createElement("p");
+                reviewContent.innerHTML = "<strong>" + name + "</strong>: " + message;
+                reviewItem.appendChild(reviewContent);
+                reviewList.appendChild(reviewItem);
+            }
+
+            function loadReviews() {
+                // Simulating loading reviews from database or storage
+                var reviewList = document.getElementById("review-list");
+                reviewList.innerHTML = ""; // Clear existing reviews
+                var reviews = [
+                    { name: "John Doe", message: "Great sneakers! Love the design and comfort." },
+                    { name: "Jane Smith", message: "Excellent customer service. Fast shipping too!" },
+                    { name: "David Brown", message: "Highly recommend! Will buy again." }
+                ];
+
+                reviews.forEach(function(review) {
+                    var reviewItem = document.createElement("div");
+                    reviewItem.classList.add("review-item");
+                    var reviewContent = document.createElement("p");
+                    reviewContent.innerHTML = "<strong>" + review.name + "</strong>: " + review.message;
+                    reviewItem.appendChild(reviewContent);
+                    reviewList.appendChild(reviewItem);
+                });
+            }
         });
     </script>
 </body>
 </html>
+
 
 
 
