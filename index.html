@@ -169,9 +169,9 @@
             function addToCart(id, name, price, image) {
                 var existingItem = cartItems.find(item => item.id === id);
                 if (existingItem) {
-                    existingItem.quantity++;
+                existingItem.quantity++;
                 } else {
-                    cartItems.push({ id, name, price: parseFloat(price), image, quantity: 1 });
+                cartItems.push({ id, name, price: parseFloat(price), image, quantity: 1 });
                 }
                 updateCartDisplay();
             }
@@ -181,16 +181,16 @@
                 var cartTotal = document.getElementById("cart-total");
                 cart.innerHTML = "";
                 var total = 0;
-
+    
                 cartItems.forEach(function(item) {
                     var cartItem = document.createElement("div");
                     cartItem.classList.add("cart-item");
-
+    
                     var img = document.createElement("img");
                     img.src = item.image;
                     img.alt = item.name;
                     img.classList.add("cart-item-image");
-
+    
                     var itemName = document.createElement("span");
                     itemName.textContent = item.name + " x" + item.quantity;
                     itemName.classList.add("cart-item-name");
@@ -199,13 +199,13 @@
                     var totalPrice = (item.price * item.quantity).toFixed(2).replace(/\.00$/, "");
                     itemPrice.textContent = " - CHF " + totalPrice;
                     itemPrice.classList.add("cart-item-price");
-
+    
                     total += item.price * item.quantity;
-
+    
                     cartItem.appendChild(img);
                     cartItem.appendChild(itemName);
                     cartItem.appendChild(itemPrice);
-
+    
                     cart.appendChild(cartItem);
                 });
 
@@ -239,49 +239,38 @@
 
             homeLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                homeSection.style.display = "block";
-                catalogSection.style.display = "none";
-                aboutSection.style.display = "none";
-                contactSection.style.display = "none";
-                cartSection.style.display = "none";
+                showSection(homeSection);
             });
 
             catalogLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                catalogSection.style.display = "block";
-                homeSection.style.display = "none";
-                aboutSection.style.display = "none";
-                contactSection.style.display = "none";
-                cartSection.style.display = "none";
+                showSection(catalogSection);
             });
 
             aboutLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                aboutSection.style.display = "block";
-                homeSection.style.display = "none";
-                catalogSection.style.display = "none";
-                contactSection.style.display = "none";
-                cartSection.style.display = "none";
+                showSection(aboutSection);
             });
 
             contactLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                contactSection.style.display = "block";
-                homeSection.style.display = "none";
-                catalogSection.style.display = "none";
-                aboutSection.style.display = "none";
-                cartSection.style.display = "none";
+                showSection(contactSection);
             });
 
             cartLink.addEventListener("click", function(event) {
                 event.preventDefault();
-                cartSection.style.display = "block";
+                showSection(cartSection);
+                updateCartDisplay(); // Update cart display when navigating to cart
+            });
+
+            function showSection(section) {
                 homeSection.style.display = "none";
                 catalogSection.style.display = "none";
                 aboutSection.style.display = "none";
                 contactSection.style.display = "none";
-                updateCartDisplay(); // Update cart display when navigating to cart
-            });
+                cartSection.style.display = "none";
+                section.style.display = "block";
+            }
 
             var contactForm = document.getElementById("contact-form");
             contactForm.addEventListener("submit", function(event) {
