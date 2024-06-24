@@ -167,11 +167,12 @@
             var cartItems = [];
 
             function addToCart(id, name, price, image) {
+                // Check if the item already exists in cartItems based on id
                 var existingItem = cartItems.find(item => item.id === id);
                 if (existingItem) {
-                existingItem.quantity++;
+                    existingItem.quantity++;
                 } else {
-                cartItems.push({ id, name, price: parseFloat(price), image, quantity: 1 });
+                    cartItems.push({ id, name, price: parseFloat(price), image, quantity: 1 });
                 }
                 updateCartDisplay();
             }
