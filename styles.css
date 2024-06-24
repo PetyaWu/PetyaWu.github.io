@@ -167,6 +167,20 @@ footer {
     flex-grow: 1;
 }
 
+.cart-item-quantity {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.cart-item-quantity button {
+    margin: 0 5px;
+    padding: 3px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+}
+
 .cart-item-price {
     margin-left: 10px;
     font-weight: bold;
