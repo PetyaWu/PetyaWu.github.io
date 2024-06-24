@@ -62,26 +62,30 @@ footer {
     bottom: 0;
 }
 
-/* Стили для домашней страницы */
-#home-section {
+.home-section {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('../images/home_background.jpg') no-repeat center center/cover;
+    background: url('images/home_background.jpg') no-repeat center center/cover;
     text-align: center;
+    color: #fff;
 }
 
-#home-section h1 {
-    color: #fff;
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+.home-text {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
 }
 
-#home-section p {
+.main-title {
+    font-size: 3em;
     color: #fff;
-    font-size: 1.5rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.slogan {
+    font-size: 1.5em;
+    color: #333;
 }
 
 /* Стили для каталога */
@@ -122,10 +126,53 @@ footer {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Добавлена анимация кнопок */
+    transition: background-color 0.3s ease;
 }
 
 .product button:hover {
+    background-color: #e91e63;
+}
+
+/* Стили для корзины */
+#cart {
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+#cart div {
+    margin-bottom: 10px;
+}
+
+/* Стили для формы контактов */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form label {
+    margin-top: 10px;
+}
+
+#contact-form input, 
+#contact-form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
     background-color: #e91e63;
 }
 
@@ -221,7 +268,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     padding: 5px 10px;
-    transition: background-color 0.3s ease; /* Добавлена анимация */
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -256,7 +303,7 @@ nav ul li a:hover {
     color: white;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Добавлена анимация кнопок */
+    transition: background-color 0.3s ease;
 }
 
 .review-form button:hover {
